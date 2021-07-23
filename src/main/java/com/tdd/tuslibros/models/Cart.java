@@ -8,6 +8,14 @@ public class Cart {
     private int id;
     private List<Book> books = new ArrayList<>();
 
+    public Boolean contains(Book book) {
+        return this.books.contains(book);
+    }
+
+    public Boolean containsAll(ArrayList<Book> otherListOfBooks) {
+        return otherListOfBooks.stream().allMatch(book -> this.books.contains(book));
+    }
+
     public int getId() {
         return id;
     }
@@ -26,9 +34,5 @@ public class Cart {
 
     public void addBook(Book book) {
         books.add(book);
-    }
-
-    public Boolean containsBook(ArrayList<Book> anotherListOfBooks) {
-        return anotherListOfBooks.stream().allMatch(book -> this.books.contains(book));
     }
 }
