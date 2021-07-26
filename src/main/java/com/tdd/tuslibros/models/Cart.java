@@ -1,6 +1,8 @@
 package com.tdd.tuslibros.models;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 public class Cart {
@@ -14,6 +16,14 @@ public class Cart {
 
     public Boolean containsAll(ArrayList<Book> otherListOfBooks) {
         return otherListOfBooks.stream().allMatch(book -> this.books.contains(book));
+    }
+
+    public int containsSameBooksQuantity(Book book) {
+        return Collections.frequency(books, book);
+    }
+
+    public Boolean verifyEditors() {
+        return true
     }
 
     public int getId() {
